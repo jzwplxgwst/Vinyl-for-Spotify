@@ -3,63 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vinyl Record with Case</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body, html {
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f0f0f0;
-        }
-
-        .container {
-            position: relative;
-            width: 600px; /* Adjust the size as needed */
-        }
-
-        .vinyl {
-            width: 100%;
-            height: auto;
-            position: relative;
-            z-index: 2; /* Ensure the vinyl is above the record case */
-            animation: spin 5s linear infinite; /* Add spinning animation */
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        .needle {
-            position: absolute;
-            top: 20%;
-            left: 60%;
-            width: 50%; /* Adjust needle size */
-            transform: rotate(-30deg); /* Rotate the needle */
-            z-index: 3; /* Ensure the needle is above both vinyl and record case */
-        }
-
-        .record-case {
-            position: absolute;
-            top: 1%; /* Adjust the vertical position */
-            left: -95%; /* Adjust the horizontal position */
-            width: 130%; /* Increase the size of the record case */
-            transform: rotate(-10deg); /* Tilt the record case */
-            z-index: 1; /* Set z-index lower than the vinyl to place it behind */
-        }
-
-    </style>
+    <title>Vinyl Record fir Spotify</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -68,20 +13,6 @@
         <img src="vinyl needle.png" alt="Vinyl Needle" class="needle">
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const vinylDisc = document.getElementById('vinylDisc');
-            let spinning = true;
-
-            vinylDisc.addEventListener('click', function() {
-                if (spinning) {
-                    vinylDisc.style.animationPlayState = 'paused';
-                } else {
-                    vinylDisc.style.animationPlayState = 'running';
-                }
-                spinning = !spinning;
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
