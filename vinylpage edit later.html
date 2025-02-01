@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Card</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #ffe6e6; /* Light pink background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        .container {
+            position: relative;
+        }
+
+        .vinyl {
+            width: 300px; /* Adjust the size of the vinyl */
+            height: 300px;
+            position: relative;
+            z-index: 1;
+            animation: spin 5s linear infinite;
+            display: block;
+            margin: 0 auto; /* Center the vinyl horizontally */
+        }
+
+        .needle {
+            position: absolute;
+            width: 100px;
+            height: 200px;
+            background: url('needle.png') no-repeat center center;
+            background-size: contain;
+            right: 10px;
+            top: -60px;
+            transform: rotate(0deg);
+            transition: transform 0.5s ease-in-out;
+            z-index: 2;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .paused {
+            animation-play-state: paused;
+        }
+
+        .needle-off {
+            transform: rotate(-30deg) translateX(50px);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" onclick="togglePlay()">
+        <div class="needle" id="needle"></div>
+        <img src="vinyl.png" alt="Vinyl" class="vinyl" id="vinyl">
+    </div>
+
+    <script>
+        let playing = true;
+        function togglePlay() {
+            const vinyl = document.getElementById('vinyl');
+            const needle = document.getElementById('needle');
+
+            if (playing) {
+                vinyl.classList.add('paused');
+                needle.classList.add('needle-off');
+            } else {
+                vinyl.classList.remove('paused');
+                needle.classList.remove('needle-off');
+            }
+            playing = !playing;
+        }
+    </script>
+</body>
+</html>
